@@ -7,6 +7,12 @@ if [ -z "$version" ]; then
   exit 1
 fi
 
+cd ./angular2
+
+npm run build
+
 generatedNpmVersion="$(npm version $version)"
 
-npm publish --access public --tag "text-mask-${generatedNpmVersion}"
+npm publish --access public
+
+git tag "angular2-${generatedNpmVersion}"
